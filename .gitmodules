@@ -1,3 +1,6 @@
 [submodule "pkgs/python-mynux"]
 	path = pkgs/python-mynux
 	url = https://aur.archlinux.org/python-mynux.git
+[submodule "pkgs/axju-backgrounds"]
+	path = pkgs/axju-backgrounds
+	url = https://aur.archlinux.org/axju-backgrounds.git
