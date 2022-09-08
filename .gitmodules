@@ -1,0 +1,3 @@
+[submodule "pkgs/python-mynux"]
+	path = pkgs/python-mynux
+	url = https://aur.archlinux.org/python-mynux.git
