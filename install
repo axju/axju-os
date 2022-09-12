@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#     _    __  __   _ _   _
+#    / \   \ \/ /  | | | | |  Axel Juraske
+#   / _ \   \  /_  | | | | |  https://www.youtube.com/c/axju
+#  / ___ \  /  \ |_| | |_| |  https://www.github.com/axju
+# /_/   \_\/_/\_\___/ \___/
+#
+# DESC: An installation and deployment script for axju qtile desktop.
+# WARNING: Run this script at your own risk.
+
+
+error() { \
+    clear; printf "ERROR:\\n%s\\n" "$1" >&2; exit 1;
+}
+
+addrepo() { \
+    echo "#########################################################"
+    echo "## Adding the axju core repository to /etc/pacman.conf ##"
+    echo "## And syncing the repos                               ##"
+    echo "#########################################################"
+    grep -qxF "[axju]" /etc/pacman.conf ||
+        echo -e "\n[axju]\nSigLevel = Optional TrustAll\nServer = https://pkg.axju.de/\$arch\n" |
+        sudo tee -a /etc/pacman.conf
+    sudo pacman --noconfirm -Syyu
+}
+
+addrepo || error "Error adding axju repo to /etc/pacman.conf."
+
+sudo pacman -S axju-base

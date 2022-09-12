@@ -1,0 +1,43 @@
+# Maintainer: Axel Juraske <moina@axju.de>
+pkgbase=axju
+pkgname=(axju-base axju-desktop)
+pkgver=v0.1.r0.g51910ee
+pkgrel=1
+pkgdesc="System config for axju systems"
+arch=(any)
+url="https://github.com/axju/axju-os"
+license=(MIT)
+groups=(axju)
+makedepends=(git)
+
+rootdir=$PWD
+
+pkgver() {
+    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+package_axju-base() {
+    install=axju-base.install
+
+    # Base packages
+    depends=(base linux linux-firmware vim)
+
+    # Networking
+    depends+=(openssh)
+
+    # General tools
+    depends+=(git cmake)
+
+    # Arch Packaging
+    depends+=(devtools)
+
+    # Python tools
+    depends+=(python python-mynux python-black python-pycodestyle python-pylint flake8)
+
+    cp -a "$rootdir/files/axju-base/"* "$pkgdir"
+    chmod -R 0750 "$pkgdir/etc/sudoers.d"
+}
+
+package_axju-desktop() {
+    install=axju-desktop.install
+}

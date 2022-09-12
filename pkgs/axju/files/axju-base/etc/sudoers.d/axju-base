@@ -1,0 +1,4 @@
+# Managed by axju-base package
+# https://github.com/axju/axju-os
+
+%wheel ALL=(ALL:ALL) NOPASSWD: ALL

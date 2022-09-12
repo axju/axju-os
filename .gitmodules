@@ -4,3 +4,9 @@
 [submodule "pkgs/axju-backgrounds"]
 	path = pkgs/axju-backgrounds
 	url = https://aur.archlinux.org/axju-backgrounds.git
+[submodule "pkgs/ulauncher"]
+	path = pkgs/ulauncher
+	url = https://aur.archlinux.org/ulauncher.git
+[submodule "pkgs/synology-drive"]
+	path = pkgs/synology-drive
+	url = https://aur.archlinux.org/synology-drive.git
